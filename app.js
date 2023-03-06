@@ -1,6 +1,6 @@
 const express= require('express');
 const path=require('path');
-const sequelize=require('Sequelize')
+const sequelize=require('./database/connect')
 const adminLog=require('./models/admin/admin')
 const adminCandidates=require('./models/admin/candidates')
 const Voters=require('./models/voters/voter')
@@ -13,13 +13,13 @@ const app=express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({encoded:true}));
 app.set('view engine', 'ejs');
-app.use((req,res,next)=>{
-    Voters.findByPk(1).then(voter=>{
-        req.voter=voter;
-        next()
-    })
-})
-Result.hasMany(Voters)
+// app.use((req,res,next)=>{
+//     Voters.findByPk(1).then(voter=>{
+//         req.voter=voter;
+//         next()
+//     })
+// })
+// Result.hasMany(Voters)
 sequelize.sync().then(vote=>{
     app.listen(3005)
 })

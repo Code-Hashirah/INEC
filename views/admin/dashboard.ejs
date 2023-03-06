@@ -1,0 +1,184 @@
+<%- include('../includes/header.ejs') %>
+<body>
+  
+<div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <h3>We Vote</h3>
+      <!-- <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60"> -->
+    </div>
+  
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index3.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Help line</a>
+        </li>
+      </ul>
+  
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="fas fa-search"></i>
+          </a>
+          
+        </li>
+    </ul>
+    </nav>
+    <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="/admin-dashboard" class="d-block">Aviator Kabir</a>
+        </div>
+      </div>
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item menu-open">
+                <a href="/admin-dashboard" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <!-- <i class="right fas fa-angle-left"></i> -->
+                  </p>
+                </a>
+              </li>
+
+          <li class="nav-item menu-open">
+            <a href="/admin-add-routes" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Add Travel Routes
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item menu-open">
+            <a href="/admin-our-route" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+               Travel Routes
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item menu-open">
+            <a href="/" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+              Home Page
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
+                 
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6 animate__animated animate__rotateIn">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>100%</h3>
+
+                <p>Fast and Efficient</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6 animate__animated animate__rotateIn">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>30<sup style="font-size: 20px">%</sup></h3>
+                <p>Over 30 flights per week</p>
+               
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+         
+          <!-- ./col -->
+          <div class="col-lg-3 col-6 animate__animated animate__rotateIn">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>60</h3>
+                <p>Over 60 Routes</p>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+           <!-- ./col -->
+           <div class="col-lg-3 col-6 animate__animated animate__rotateIn">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>0</h3>
+                <p>0% Disaster Rate</p>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+            <!--/.direct-chat -->
+            
+    <!-- /.content -->
+  </div>
+
+    </div>
+    <%- include('../includes/footer.ejs') %>
+</body>
