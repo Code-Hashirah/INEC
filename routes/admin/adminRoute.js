@@ -1,5 +1,5 @@
 const router=require('express').Router();
-const adminController=require('../../controllers/admin/admin');
+const adminController=require('../../controllers/auth/auth');
 
 router.get('/admin-login',adminController.adminLogin);
 router.post('/admin-login',adminController.adminLogin);
