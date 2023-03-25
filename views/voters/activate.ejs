@@ -1,0 +1,24 @@
+<%- include('../includes/voters/voter-header') %>
+</head>
+<body class="text-bg-light">
+    <%- include('../includes/voters/voter-navbar') %>
+<div class="container-fluid">
+    <form action="/register" class="was-validated" method="post">
+        <div class="mb-3 mt-3">
+  
+          <input type="hidden" class="form-control" id="email" value="user.email" name="Email" required>
+          
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Activate Accounte</button>
+      </form>
+</div>
+
+
+
+
+
+    <%- include('../includes/voters/voter-footer') %>
+</body>
+</html>
