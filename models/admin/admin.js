@@ -22,10 +22,6 @@ const Admin=sequelize.define('adminLog',{
     password:{
         type:Sequelize.STRING,
         allowNull:false,
-    },
-    confirmPassword:{
-        type:Sequelize.STRING,
-        allowNull:false,
     }
 })
 module.exports=Admin;

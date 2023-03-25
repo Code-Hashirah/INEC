@@ -53,8 +53,8 @@ app.use((req, res, next)=>{
 app.use(adminRoute);
 app.use(voterRoute);
 app.use(resultRoute)
-// Result.alter({true})
-// Result.alter({true})
+// Admin.sync({alter:true})
+// Result.sync({alter:true})
 sequelize.sync().then(vote=>{
     app.listen(3005)
     console.log("connected on port 3005")

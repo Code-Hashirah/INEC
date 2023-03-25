@@ -26,9 +26,13 @@ const voter=sequelize.define("voters", {
         unique:true,
         allowNull:false
     },
-    image:{
+    password:{
         type:DataTypes.STRING,
-    allowNull:true
+    allowNull:false
+    },
+    activated:{
+        type:DataTypes.STRING(3),
+        allowNull:true
     }
 });
 

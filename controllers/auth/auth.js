@@ -27,14 +27,13 @@ exports.adminRegister=(req,res)=>{
 }
 
 exports.adminRegistration=(req,res)=>{
-    const {Name,Phone,Image,Email,Password,ConfirmPassword}=req.body;
+    const {Name,Phone,Image,Email,Password}=req.body;
     Admin.create({
         names:Name,
         phone:Phone,
         pic:Image,
         email:Email,
-        password:Password,
-        confirmPassword:ConfirmPassword
+        password:Password
     });
     res.redirect('/admin-dashboard')
     // res.json({success:'successfull'})
