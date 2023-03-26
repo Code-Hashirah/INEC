@@ -3,17 +3,20 @@
 <body class="text-bg-light">
     <%- include('../includes/voters/voter-navbar') %>
 <div class="container-fluid">
-    <form action="/register" class="was-validated" method="post">
+  <!-- <%= JSON.stringify(ErrorMsg) %> -->
+    <form action="/register"  method="post" class="w-75 mx-auto">
         <div class="mb-3 mt-3">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email" required>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email">
           <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback"><% if(ErrorMsg.length!=0){
+          <div>
+            <% if(ErrorMsg.length!==0){
             for (let error of ErrorMsg){
               if(error.param=="Email") { %>
                 <div class="text-danger"> <%= error.msg %></div>
             <%  }
             }
+          }
             %> 
           
           </div>
@@ -21,42 +24,82 @@
 
         <div class="mb-3 mt-3">
             <label for="Nin" class="form-label">NIN:</label>
-            <input type="text" class="form-control" id="Nin" placeholder=" Enter National Identification Number" name="Nin" required>
+            <input type="text" class="form-control" id="Nin" placeholder=" Enter National Identification Number" name="Nin" >
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div>
+              <% if(ErrorMsg.length!==0){
+              for (let error of ErrorMsg){
+                if(error.param=="Nin") { %>
+                  <div class="text-danger"> <%= error.msg %></div>
+              <%  }
+              }
+            }
+              %> 
           </div>
 
           <div class="mb-3 mt-3">
             <label for="name" class="form-label">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name" name="Name" required>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="Name" >
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div>
+              <% if(ErrorMsg.length!==0){
+              for (let error of ErrorMsg){
+                if(error.param=="Name") { %>
+                  <div class="text-danger"> <%= error.msg %></div>
+              <%  }
+              }
+            }
+              %> 
           </div>
 
           <div class="mb-3 mt-3">
             <label for="phone" class="form-label">Phone Number:</label>
-            <input type="tel" class="form-control" id="phone" placeholder="Enter phone number" name="name" required>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter phone number" name="Phone" >
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div>
+              <% if(ErrorMsg.length!==0){
+              for (let error of ErrorMsg){
+                if(error.param=="Phone") { %>
+                  <div class="text-danger"> <%= error.msg %></div>
+              <%  }
+              }
+            }
+              %> 
           </div>
 
         <div class="mb-3">
           <label for="pwd" class="form-label">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password" required>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password" >
           <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div>
+            <% if(ErrorMsg.length!==0){
+            for (let error of ErrorMsg){
+              if(error.param=="Password") { %>
+                <div class="text-danger"> <%= error.msg %></div>
+            <%  }
+            }
+          }
+            %> 
         </div>
 
         <div class="mb-3">
           <label for="Cpwd" class="form-label">Password:</label>
-          <input type="password" class="form-control" id="Cpwd" placeholder="Confirm password" name="ConfirmPassword" required>
+          <input type="password" class="form-control" id="Cpwd" placeholder="Confirm password" name="ConfirmPass" >
           <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field. </div>
+          <div>
+            <% if(ErrorMsg.length!==0){
+            for (let error of ErrorMsg){
+              if(error.param=="ConfirmPass") { %>
+                <div class="text-danger"> <%= error.msg %></div>
+            <%  }
+            }
+          }
+            %> 
         </div>
 
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
-          <label class="form-check-label" for="myCheck">I hereby certify that i am of age 18 years and above
+          <label class="form-check-label" for="myCheck">I hereby certify that i am of age 18 years or above
              and eligible to vote and i take full responsibilty of my use of this platform</label>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Check this checkbox to continue.</div>

@@ -11,7 +11,7 @@ router.post('/register', [
 check('Email').notEmpty().withMessage('Email cannot be blank').isEmail().withMessage('Invalid Email').normalizeEmail(),
 check('Nin').notEmpty().withMessage('NIN must be filled').isNumeric().withMessage('Invalid NIN'),
 check('Name').notEmpty().withMessage('Name cannot be empty'),
-check('Phone').notEmpty().withMessage('Phone number is required').isNumeric('Invalid input'),
+check('Phone').notEmpty().withMessage('Phone number is required'),
 check('Password').notEmpty().withMessage('Password cannot be empty').isLength({min:6}).withMessage('Password must be more than 6 characters long'),
 check('ConfirmPass').notEmpty().withMessage('This field cannot be empty').custom((value, {req})=>{
         if(value !==req.body.Password){

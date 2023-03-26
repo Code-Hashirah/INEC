@@ -27,6 +27,7 @@ crypto.randomBytes(32, (err, buffer)=>{
         })
     }
     let token=buffer.toString('hex');
+    console.log(buffer)
     bcrypt.hash(Password, 12).then(hashedPassword=>{
         Voter.create({
             email:Email,
@@ -39,12 +40,12 @@ crypto.randomBytes(32, (err, buffer)=>{
             // voter.resetToken=token;
             // voter.resetTokenExpiration=Date.now() +90000000
             const email={
-                to:[user.email, 'newuser@wevote.com'],
+                to:[voter.email, 'newuser@wevote.com'],
                 from:{
                     name: 'We- Vote',
                     email:'info@wevote.com.ng'
                 },
-                subject:'Welcome' +user.name+' thank you for registering',
+                subject:'Welcome' +voter.name+' thank you for registering',
                 html:`
                 <h2> Activate your account </h2>
                 <p> <a href="http:/localhost:3005/activate/${token}"> Activate</a> </p>
