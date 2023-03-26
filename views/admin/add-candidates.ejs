@@ -1,0 +1,143 @@
+<%- include('../includes/voters/voter-header') %>
+</head>
+<body class="text-bg-light">
+    <%- include('../includes/voters/voter-navbar') %>
+<div class="container-fluid">
+  <!-- <%= JSON.stringify(ErrorMsg) %> -->
+    <form action="/add-candidates"  method="post" class="w-75 mx-auto">
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">Candidate's Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Candidate name" name="Name">
+          <div class="valid-feedback">Valid.</div>
+          <div>
+            <% if(ErrorMsg.length!==0){
+            for (let error of ErrorMsg){
+              if(error.param=="Name") { %>
+                <div class="text-danger"> <%= error.msg %></div>
+            <%  }
+            }
+          }
+            %> 
+          
+          </div>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="age" class="form-label"> Candidate's Age:</label>
+            <input type="text" class="form-control" id="age" placeholder=" Candidate's Age" name="Age" >
+            <div class="valid-feedback">Valid.</div>
+            <div>
+              <% if(ErrorMsg.length!==0){
+              for (let error of ErrorMsg){
+                if(error.param=="Age") { %>
+                  <div class="text-danger"> <%= error.msg %></div>
+              <%  }
+              }
+            }
+              %> 
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="DOB" class="form-label">Date of Birth:</label>
+            <input type="date" class="form-control" id="DOB" placeholder="Date of Birth" name="Dob" >
+            <div class="valid-feedback">Valid.</div>
+            <div>
+              <% if(ErrorMsg.length!==0){
+              for (let error of ErrorMsg){
+                if(error.param=="Dob") { %>
+                  <div class="text-danger"> <%= error.msg %></div>
+              <%  }
+              }
+            }
+              %> 
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="party" class="form-label">Party:</label>
+            <input type="text" class="form-control" id="party" placeholder="Political Party" name="Party" >
+                <datalist id="party">
+                <option value="A">
+                <option value="AA">
+                <option value="APC">
+                <option value="LP">
+                <option value="NNPP">
+                <option value="PDP">
+                <option value="YPP">
+                </datalist>
+            <div class="valid-feedback">Valid.</div>
+            <div>
+              <% if(ErrorMsg.length!==0){
+              for (let error of ErrorMsg){
+                if(error.param=="Party") { %>
+                  <div class="text-danger"> <%= error.msg %></div>
+              <%  }
+              }
+            }
+              %> 
+          </div>
+
+        <div class="mb-3">
+          <label for="PartyLogo" class="form-label">PartyLogo:</label>
+          <input type="file" class="form-control" id="PartyLogo" placeholder="Party Logo" name="PartyLogo" >
+          <div class="valid-feedback">Valid.</div>
+          <div>
+            <% if(ErrorMsg.length!==0){
+            for (let error of ErrorMsg){
+              if(error.param=="Password") { %>
+                <div class="text-danger"> <%= error.msg %></div>
+            <%  }
+            }
+          }
+            %> 
+        </div>
+
+        <div class="mb-3">
+          <label for="contesting" class="form-label">Contesting:</label>
+          <input type="" class="form-control" id="contesting" placeholder="Contesting for" name="Contesting" >
+          <datalist id="contesting">
+            <option value="A--Presidency">
+            <option value="AA--Presidency">
+            <option value="APC--Presidency">
+            <option value="LP--Presidency">
+            <option value="NNPP--Presidency">
+            <option value="PDP--Presidency">
+            <option value="YPP--Presidency">
+                <option value="A--Governorship">
+                    <option value="AA--Governorship">
+                    <option value="APC--Governorship">
+                    <option value="LP--Governorship">
+                    <option value="NNPP--Governorship">
+                    <option value="PDP--Governorship">
+                    <option value="YPP--Governorship">
+            </datalist>
+          <div class="valid-feedback">Valid.</div>
+          <div>
+            <% if(ErrorMsg.length!==0){
+            for (let error of ErrorMsg){
+              if(error.param=="ConfirmPass") { %>
+                <div class="text-danger"> <%= error.msg %></div>
+            <%  }
+            }
+          }
+            %> 
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+          <label class="form-check-label" for="myCheck">I hereby certify that I have satisfied all
+            conditions to be met as a contestant
+          </label>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Check this checkbox to continue.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+
+
+
+
+    <%- include('../includes/voters/voter-footer') %>
+</body>
+</html>

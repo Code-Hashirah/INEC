@@ -21,12 +21,11 @@ dob:{
 },
 party:DataTypes.TEXT,
 pic:DataTypes.STRING,
-role:{
+contesting:{
     type:DataTypes.STRING(60),
-    unique:true,
-
 }
 })
 
 
 module.exports=candidates;
+
