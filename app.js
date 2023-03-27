@@ -19,15 +19,15 @@ const flash = require('connect-flash')
 const multer = require('multer')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({encoded:true}));
-let storage= multer.diskStorage({
+let storage = multer.diskStorage({
     destination:(req, file, cb)=>{
         cb(null, 'public/images')
     },
     filename:(req, file, cb)=>{
-        cb(null, Date.now()+ "-" +'picture'+ file.originalname)
+        cb(null, Date.now() + "-" + 'Logo' + file.originalname)
     }
 })
-app.use(multer({storage:storage}).single('image'))
+app.use(multer({storage: storage}).single('image'))
 app.set('view engine', 'ejs');
 app.use(flash())
 app.use(session({
@@ -55,6 +55,7 @@ app.use(voterRoute);
 app.use(resultRoute)
 // Voters.sync({force:true})
 // Result.sync({alter:true})
+// Candidates.sync({force:true})
 sequelize.sync().then(vote=>{
     app.listen(3005)
     console.log("connected on port 3005")

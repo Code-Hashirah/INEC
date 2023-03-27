@@ -1,10 +1,13 @@
 <%- include('../includes/voters/voter-header') %>
 </head>
-<body class="text-bg-light">
-    <%- include('../includes/voters/voter-navbar') %>
-<div class="container-fluid">
-  <!-- <%= JSON.stringify(ErrorMsg) %> -->
-    <form action="/add-candidates"  method="post" class="w-75 mx-auto">
+<body class="text-bg-light row">
+  <div class="col-3">
+     <%- include('../includes/admin/admin-navbar') %>
+  </div>
+ 
+<div class="container-fluid col-8">
+  <%= JSON.stringify(ErrorMsg) %>
+    <form action="/add-candidates"  method="post" class="w-75 mx-1" enctype="multipart/form-data">
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">Candidate's Name:</label>
           <input type="text" class="form-control" id="name" placeholder="Candidate name" name="Name">
@@ -54,8 +57,8 @@
 
           <div class="mb-3 mt-3">
             <label for="party" class="form-label">Party:</label>
-            <input type="text" class="form-control" id="party" placeholder="Political Party" name="Party" >
-                <datalist id="party">
+            <input class="form-control" list="Party" id="party" name="Party" >
+                <datalist id="Party">
                 <option value="A">
                 <option value="AA">
                 <option value="APC">
@@ -78,23 +81,13 @@
 
         <div class="mb-3">
           <label for="PartyLogo" class="form-label">PartyLogo:</label>
-          <input type="file" class="form-control" id="PartyLogo" placeholder="Party Logo" name="PartyLogo" >
+          <input type="file" class="form-control" id="PartyLogo" name="image" >
           <div class="valid-feedback">Valid.</div>
-          <div>
-            <% if(ErrorMsg.length!==0){
-            for (let error of ErrorMsg){
-              if(error.param=="Password") { %>
-                <div class="text-danger"> <%= error.msg %></div>
-            <%  }
-            }
-          }
-            %> 
-        </div>
-
+         
         <div class="mb-3">
           <label for="contesting" class="form-label">Contesting:</label>
-          <input type="" class="form-control" id="contesting" placeholder="Contesting for" name="Contesting" >
-          <datalist id="contesting">
+          <input class="form-control" list="Contesting" id="contesting"  name="Contesting" >
+          <datalist id="Contesting">
             <option value="A--Presidency">
             <option value="AA--Presidency">
             <option value="APC--Presidency">
@@ -102,19 +95,19 @@
             <option value="NNPP--Presidency">
             <option value="PDP--Presidency">
             <option value="YPP--Presidency">
-                <option value="A--Governorship">
-                    <option value="AA--Governorship">
-                    <option value="APC--Governorship">
-                    <option value="LP--Governorship">
-                    <option value="NNPP--Governorship">
-                    <option value="PDP--Governorship">
-                    <option value="YPP--Governorship">
+              <option value="A--Governorship">
+                <option value="AA--Governorship">
+                <option value="APC--Governorship">
+                <option value="LP--Governorship">
+                <option value="NNPP--Governorship">
+                <option value="PDP--Governorship">
+                <option value="YPP--Governorship">
             </datalist>
           <div class="valid-feedback">Valid.</div>
           <div>
             <% if(ErrorMsg.length!==0){
             for (let error of ErrorMsg){
-              if(error.param=="ConfirmPass") { %>
+              if(error.param=="Contesting") { %>
                 <div class="text-danger"> <%= error.msg %></div>
             <%  }
             }

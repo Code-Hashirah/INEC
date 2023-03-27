@@ -33,7 +33,8 @@ const voter=sequelize.define("voters", {
     activated:{
         type:DataTypes.STRING(3),
         allowNull:true
-    }
+    },
+    token:DataTypes.STRING
 });
 
 module.exports=voter;

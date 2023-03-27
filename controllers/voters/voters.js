@@ -35,7 +35,8 @@ crypto.randomBytes(32, (err, buffer)=>{
             name:Name,
             phone:Phone,
             password:hashedPassword,
-            active:Active
+            active:Active,
+            token:token
         }).then(voter=>{
             // voter.resetToken=token;
             // voter.resetTokenExpiration=Date.now() +90000000
