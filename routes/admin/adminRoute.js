@@ -9,4 +9,5 @@ router.get('/admin-register',adminController.adminRegister);
 router.post('/admin-register',adminController.adminRegistration)
 
 router.get('/add-candidates',candidatesController.addCandidatesPage)
+router.post('/add-candidates', candidatesController.addCandidates)
 module.exports=router;
