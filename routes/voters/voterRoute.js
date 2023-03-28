@@ -21,5 +21,7 @@ check('ConfirmPass').notEmpty().withMessage('This field cannot be empty').custom
 })
 ],voterController.registerVoter)
 
+router.get('/activate/:token', voterController.activatePage)
+router.post('/activate', voterController.activate)
 
 module.exports=router;

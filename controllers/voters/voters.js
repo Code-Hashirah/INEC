@@ -72,6 +72,33 @@ crypto.randomBytes(32, (err, buffer)=>{
         console.log(err)
     })
 })
+}
 
 
+exports.activatePage=(req,res)=>{
+    const Token = req.params.token;
+ Voter.findOne({
+    where:{
+        token:Token
+    }
+ }).then(voter=>{
+    res.render('voters/activate', {title:"We-Vote::activation", Voter:voter})
+ })   
+}
+
+exports.activate=(req,res)=>{
+    const {Email}=req.body;
+    Voter.findOne({
+        where:{
+            email:Email
+        }
+    }).then(voter=>{
+        voter.active="YES"
+        return voter.save()
+    }).then(voter1=>{
+        return res.redirect('/login')
+    })
+    .catch(err=>{
+        console.log(err)
+    })
 }
