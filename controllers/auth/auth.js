@@ -1,5 +1,5 @@
 const Admin=require('../../models/admin/admin');
-
+const Voters=require('../../models/voters/voter')
 
 
 
@@ -38,3 +38,4 @@ exports.adminRegistration=(req,res)=>{
     res.redirect('/admin-dashboard')
     // res.json({success:'successfull'})
 }
+

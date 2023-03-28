@@ -11,7 +11,7 @@ const Session= require('./models/session')
 const bodyParser=require('body-parser')
 const adminRoute=require('./routes/admin/adminRoute');
 const voterRoute=require('./routes/voters/voterRoute')
-const resultRoute=require('./routes/general/resultRoute');
+const resultRoute=require('./routes/result/resultRoute');
 const app=express();
 const session=require('express-session')
 const SequelizeStore= require('connect-session-sequelize')(session.Store)
@@ -27,6 +27,7 @@ let storage = multer.diskStorage({
         cb(null, Date.now() + "-" + 'Logo' + file.originalname)
     }
 })
+// app.use(multer({storage: storage}).array('image'))
 app.use(multer({storage: storage}).single('image'))
 app.set('view engine', 'ejs');
 app.use(flash())
@@ -47,13 +48,13 @@ app.use(session({
 // })
 app.use((req, res, next)=>{
     res.locals.isLoggedIn=req.session.isLoggedIn;
-    res.locals.user=req.session.user
+    res.locals.voter=req.session.voter
     next()
 })
 app.use(adminRoute);
 app.use(voterRoute);
 app.use(resultRoute)
-// Voters.sync({force:true})
+// Voters.sync({alter:true})
 // Result.sync({alter:true})
 // Candidates.sync({force:true})
 sequelize.sync().then(vote=>{

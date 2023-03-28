@@ -8,14 +8,14 @@ const voter=sequelize.define("voters", {
         allowNull:false,
     },
     email:{
-        type:DataTypes.STRING,
+        type:DataTypes.STRING(30),
         unique:true,
         allowNull:false
     },
     nin:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING,
+        allowNull:false,
         unique:true,
-        allowNull:false
     },
     name:{
         type:DataTypes.STRING(50),
@@ -23,12 +23,11 @@ const voter=sequelize.define("voters", {
     },
     phone:{
         type:DataTypes.INTEGER(11),
-        unique:true,
         allowNull:false
     },
     password:{
         type:DataTypes.STRING,
-    allowNull:false
+        allowNull:false
     },
     activated:{
         type:DataTypes.STRING(3),

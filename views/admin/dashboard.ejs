@@ -1,27 +1,13 @@
 <%- include('../includes/admin/admin-header.ejs') %>
 <body>
   
-<div class="wrapper">
+<div class="row">
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-      <h3>We Vote</h3>
-      <!-- <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60"> -->
-    </div>
-  
-    <!-- Navbar -->
-    <div class="col-3">
-      <%- include('../includes/admin/admin-navbar') %>
-   </div>
-
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    
-    <!-- /.content-header -->
-
+<div class="col-12">
     <!-- Main content -->
+    
     <section class="content">
-      <div class="container-fluid">
+      <div>
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-lg-3 col-6 animate__animated animate__rotateIn">
@@ -30,7 +16,7 @@
               <div class="inner">
                 <h3>100%</h3>
 
-                <p>Fast and Efficient</p>
+                <p>Efficient Voting Process</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -50,7 +36,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
             </div>
           </div>
          
@@ -62,7 +48,7 @@
                 <h3>60</h3>
                 <p>Over 60 Routes</p>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
             </div>
           </div>
 
@@ -72,19 +58,23 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>0</h3>
-                <p>0% Disaster Rate</p>
+                <p>0% Invalid Vote</p>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
             </div>
           </div>
         </div>
        
+      
       </div>
-            <!--/.direct-chat -->
-            
-    <!-- /.content -->
-  </div>
+ 
+    </section> 
+    <%- include('../includes/admin/admin-navbar') %>
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <h3 class="animation__shake">We-*-Vote</h3>
+      <!-- <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60"> -->
+    </div>
 
     </div>
     <%- include('../includes/admin/admin-footer.ejs') %>
-</body>
+</body

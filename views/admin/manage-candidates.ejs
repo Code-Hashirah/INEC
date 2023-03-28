@@ -1,0 +1,65 @@
+        <%- include('../includes/voters/voter-header') %>
+
+        <style>
+          /* tr{
+            border: none;
+          } */
+        </style>
+      </head>
+<body class="text-bg-light row">
+  <div class="col-3">
+     <%- include('../includes/admin/admin-navbar') %>
+  </div>
+ 
+<div class="container-fluid col-8">
+    <div class="card-body" >
+        <% if (Candidate.length>0){ %>
+            <table id="table1" class="table table-bordered table-striped" style="width:100%; border: 1px solid rgb(0, 68, 255);">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Birth date</th>
+                  <th>Party</th>
+                  <th>Party Logo</th>
+                  <th>Post</th>
+                  <th colspan="4">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <!-- Candidate -->
+                  <% for(let list of Candidate ){  %>
+                    <tr>
+                        <td> <%=list.id %> </td>
+                    <td> <%=list.name %> </td>
+                    <td> <%=list.age %> </td>
+                    <td> <%=list.dob %> </td>
+                    <td> <%=list.party %> </td>
+                    <td> <img src="<%=list.pic %>" alt="logo" style="width:70px; height:70px"> </td>
+                    <td> <%=list.contesting %> </td>
+                    <td> <a href="/update-candidate/<%= list.id %>" class="btn btn-warning"> <i class="fas fa-pen-fancy"></i></a>
+                     
+                    <form action="/delete-candidate" method="post">
+                      <input type="hidden" value="<%=list.id %>" name="Id">
+                      <button type="submit" class="btn btn-danger"> <i class="fas fa-trash"></i></button>
+                    </form>
+                  </td>
+                    </tr>
+  
+                   <%
+                  }
+                   %>
+                  </tbody>
+                  </table>     
+          <% }
+          else{ %>
+            <h2>No Candidates</h2>
+        <%  }
+                  %>
+       
+     </div>
+</div>
+    <%- include('../includes/voters/voter-footer') %>
+</body>
+</html>

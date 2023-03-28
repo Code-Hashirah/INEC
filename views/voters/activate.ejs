@@ -1,17 +1,18 @@
 <%- include('../includes/voters/voter-header') %>
 </head>
 <body class="text-bg-light">
-    <%- include('../includes/voters/voter-navbar') %>
+   
 <div class="container-fluid">
-    <form action="/activate" class="was-validated" method="post">
-        <div class="mb-3 mt-3">
+  <% JSON.stringify(Voters) %>
+    <form action="/activate"  method="post">
+        
   
-          <input type="hidden" class="form-control" id="email" value="<%= Voter.email %>" name="Email" required>
+          <input type="hidden" class="form-control" value="<%=Voters.email  %>" name="Email">
           
-        </div>
+      
 
         
-        <button type="submit" class="btn btn-primary">Activate Accounte</button>
+        <button type="submit" class="btn btn-primary">Activate Account</button>
       </form>
 </div>
 

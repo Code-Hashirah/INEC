@@ -1,0 +1,51 @@
+
+        <%- include('../includes/voters/voter-header') %>
+    </head>
+    <body class="text-bg-light row">
+      <div class="col-3">
+         <%- include('../includes/admin/admin-navbar') %>
+      </div>
+     
+    <div class="container-fluid col-8">
+        <div class="card-body">
+            <% if (Voters.length>0){ %>
+                <table id="table1" class="table table-bordered table-striped" style="border: 1px solid rgb(0, 68, 255);" style="width:100% ;">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Email</th>
+                      <th>NIN</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Activated?</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Candidate -->
+                      <% for(let list of Voters ){  %>
+                        <tr>
+                        <td> <%=list.id %> </td>
+                        <td> <%=list.email %> </td>
+                        <td> <%=list.nin %> </td>
+                        <td> <%=list.name %> </td>
+                        <td> <%=list.phone %> </td>
+                        <td> <%=list.activated %> </td>
+                       
+                        </tr>
+      
+                       <%
+                      }
+                       %>
+                      </tbody>
+                      </table>     
+              <% }
+              else{ %>
+                <h2>No Candidates</h2>
+            <%  }
+                      %>
+           
+         </div>
+    </div>
+        <%- include('../includes/voters/voter-footer') %>
+    </body>
+    </html>

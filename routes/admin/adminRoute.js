@@ -31,4 +31,8 @@ router.post('/add-candidates',[
 ], candidatesController.addCandidates)
 
 router.get('/admin-dashboard',adminPageController.adminDashboardPage)
+
+router.get('/manage-candidates', candidatesController.manageCandidatesPage)
+
+router.post('/delete-candidate', candidatesController.deleteCandidate)
 module.exports=router;

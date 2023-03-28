@@ -35,3 +35,22 @@ exports.addCandidates=(req,res)=>{
         console.log(err);
     })
 }
+
+
+exports.manageCandidatesPage=(req,res)=>{
+    Candidates.findAll().then(candidates=>{
+        res.render('admin/manage-candidates', {title:"Manage Candidates", Candidate:candidates})
+    })
+}
+
+exports.deleteCandidate=(req,res)=>{
+    const {Id}=req.body
+    Candidates.findByPk(Id).then(Candidate=>{
+        console.log(Candidate)
+       return Candidate.destroy();
+    }).then(Candidate=>{
+     res.redirect('/manage-candidates')
+    }).catch(err=>{
+        console.log(err)
+    })
+}

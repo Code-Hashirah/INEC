@@ -11,7 +11,6 @@ exports.registerVoterPage=(req,res)=>{
 
 exports.registerVoter=(req,res)=>{
 const {Email, Nin, Name, Phone, Password}=req.body
-let Active="NO";
 let errors=validationResult(req)
 if(!errors.isEmpty()){
     req.flash('errors', errors.array())
@@ -29,13 +28,14 @@ crypto.randomBytes(32, (err, buffer)=>{
     let token=buffer.toString('hex');
     console.log(buffer)
     bcrypt.hash(Password, 12).then(hashedPassword=>{
+        let Active="NO"
         Voter.create({
             email:Email,
             nin:Nin,
             name:Name,
             phone:Phone,
             password:hashedPassword,
-            active:Active,
+            activated:Active,
             token:token
         }).then(voter=>{
             // voter.resetToken=token;
@@ -82,7 +82,8 @@ exports.activatePage=(req,res)=>{
         token:Token
     }
  }).then(voter=>{
-    res.render('voters/activate', {title:"We-Vote::activation", Voter:voter})
+    console.log(voter)
+    res.render('voters/activate', {title:"We-Vote::activation", Voters:voter})
  })   
 }
 
@@ -93,12 +94,59 @@ exports.activate=(req,res)=>{
             email:Email
         }
     }).then(voter=>{
-        voter.active="YES"
+        voter.activated="YES"
         return voter.save()
     }).then(voter1=>{
         return res.redirect('/login')
     })
     .catch(err=>{
         console.log(err)
+    })
+}
+
+exports.manageVoterPage=(req,res)=>{
+    Voter.findAll().then(voters=>{
+        res.render('admin/manage-voters', {title:"Manage voters", Voters:voters})
+    })
+}
+
+exports.loginPage=(req,res)=>{
+    let errors=req.flash('errors')
+    res.render('voters/login', {title:"We-Vote::Login", ErrorMsg:errors})
+}
+
+exports.login=(req,res)=>{
+    const {Email, Password}=req.body;
+    errors=validationResult(req);
+    if(!errors.isEmpty()){
+        req.flash('errors', errors.array())
+        // return req.sessiom.save(()=>{
+        //     res.redirect('/login')
+        // })
+    return   res.redirect('/login')
+    }
+    Voter.findOne({
+        where:{
+            email:Email,
+            activated:"YES"
+        }
+    }).then(voter=>{
+        if(!voter){
+            req.flash('loginErr', 'Invalid username or password')
+            return req.session.save(()=>{
+                res.redirect('/login')
+            })
+        }
+        bcrypt.compare(Password,voter.password).then(verify=>{
+            if(!verify){
+                req.flash('loginErr', 'Invalid username or password')
+                return req.session.save(()=>{
+                    res.redirect('/login')
+                })
+            }
+            req.session.isLoggedIn=true;
+            req.session.voter=voter
+            res.redirect('/')
+        })
     })
 }
