@@ -4,7 +4,6 @@ const sequelize=require('./database/connect')
 const adminLog=require('./models/admin/admin')
 const adminCandidates=require('./models/admin/candidates')
 const Voters=require('./models/voters/voter')
-const Result = require('./models/results/result');
 const Admin = require('./models/admin/admin');
 const Candidates = require('./models/admin/candidates')
 const Session= require('./models/session')
@@ -20,15 +19,18 @@ const multer = require('multer')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({encoded:true}));
 let storage = multer.diskStorage({
-    destination:(req, file, cb)=>{
+    destination:(req, files, cb)=>{
         cb(null, 'public/images')
     },
-    filename:(req, file, cb)=>{
-        cb(null, Date.now() + "-" + 'Logo' + file.originalname)
+    filename:(req, files, cb)=>{
+        cb(null, Date.now()+ 'Logo' + files.originalname)
     }
 })
 // app.use(multer({storage: storage}).array('image'))
-app.use(multer({storage: storage}).single('image'))
+app.use(multer({storage: storage}).fields([
+    {name:'Image', maxCount:1},
+    {name:'Picture', maxCount:8}
+]))
 app.set('view engine', 'ejs');
 app.use(flash())
 app.use(session({

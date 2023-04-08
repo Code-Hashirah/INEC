@@ -23,6 +23,14 @@ party:DataTypes.TEXT,
 pic:DataTypes.STRING,
 contesting:{
     type:DataTypes.STRING(60),
+},
+image:{
+    type:DataTypes.STRING,
+    allowNull:true
+},
+votes:{
+    type:DataTypes.INTEGER,
+    allowNull:true
 }
 })
 
