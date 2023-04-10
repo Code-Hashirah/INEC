@@ -28,9 +28,9 @@ exports.addCandidates=(req,res)=>{
         age:Age,
         dob:Dob,
         party:Party,
-        pic:imagePath,
+        pic:picPath,
         contesting:Contesting,
-        picture:picPath
+        image:imagePath
     }).then(contestant=>{
         req.session.save(()=>{
             res.redirect('/add-candidates')
@@ -53,16 +53,29 @@ exports.deleteCandidate=(req,res)=>{
        if(!Candidate){
         throw new Error('Candidate not found');
        }
-        // console.log(Candidate)
+        console.log(Candidate)
         const imagePath=path.join(__dirname, '../../public',Candidate.pic);
-        return fs.promises.unlink(imagePath).then(()=>{
-            const picPath=path.join(__dirname,'../../public', Candidate.image);
-            return fs.promises.unlink(picPath).then(()=>Candidate.destroy());
-        })
+        return fs.promises.unlink(imagePath).then(()=>Candidate.destroy())
+        // // return fs.promises.unlink(imagePath).then(()=>{
+        //     const picPath=path.join(__dirname,'../../public', Candidate.image);
+        //     return fs.promises.unlink(imagePath).then(()=>Candidate.destroy());
+        // })
     }).then(()=>{
      res.redirect('/manage-candidates')
     }).catch(err=>{
         console.log(err);
         res.status(500).send('An error occured while deleting the file or candidate')
+    })
+}
+exports.updateCandidate=(req,res)=>{
+    const Id = req.params.id;
+    Candidates.findByPk(Id).then(candidate=>{
+        candidate.name=Name,
+        candidate.age=Age,
+        candidate.dob=Dob,
+        candidate.party=Party,
+        candidate.pic=imagePath,
+        candidate.contesting=Contesting,
+        candidate.image=picPath
     })
 }

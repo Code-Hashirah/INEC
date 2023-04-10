@@ -14,7 +14,7 @@
 <div class="container-fluid col-8">
     <div class="card-body" >
         <% if (Candidate.length>0){ %>
-            <table id="table1" class="table table-bordered table-striped" style="width:100%; border: 1px solid rgb(0, 68, 255);">
+            <table id="table1" class="table table-bordered table-striped" style="width:100%;">
                 <thead>
                 <tr>
                   <th>ID</th>
@@ -22,8 +22,9 @@
                   <th>Age</th>
                   <th>Birth date</th>
                   <th>Party</th>
-                  <th>Party Logo</th>
+                  <th>Candidate Picture</th>
                   <th>Post</th>
+                  <th>Party Logo <picture></picture></th>
                   <th colspan="4">Actions</th>
                 </tr>
                 </thead>
@@ -38,6 +39,7 @@
                     <td> <%=list.party %> </td>
                     <td> <img src="<%=list.pic %>" alt="logo" style="width:70px; height:70px"> </td>
                     <td> <%=list.contesting %> </td>
+                    <td> <img src="<%=list.image %>" alt="picture" style="width:70px; height:70px"> </td>
                     <td> <a href="/update-candidate/<%= list.id %>" class="btn btn-warning"> <i class="fas fa-pen-fancy"></i></a>
                      
                     <form action="/delete-candidate" method="post">

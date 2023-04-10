@@ -1,0 +1,79 @@
+<%- include('../includes/voters/voter-header') %>
+<style>
+    .dev i{
+        margin: 8px;
+        font-size: 18px;
+        color: white;
+        background-color: black;
+        padding: 7px;
+        border-radius: 50%;
+    }
+
+    .dev i:hover{
+        background-color: gainsboro;
+        color: black;
+    }
+
+    .row a{
+        color: black;
+    }
+
+    .card{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+        background-color:aliceblue;
+        color: black;
+    
+      
+    }
+
+    .card p{
+        font-weight: bold;
+    }
+
+    .card span{
+        font-weight: normal;
+    }
+
+
+   
+</style>
+</head>
+<body class="text-bg-light">
+    <%- include('../includes/voters/voter-navbar') %>
+
+
+    <div class="container">
+        <div class="row mx-auto">
+
+            <% if(Govenor.length >0){
+                for(let gov of Govenor){ %>
+                   
+            <div  class="col-md-12  mt-5 card col-sm-12 col-lg-4 col-xl-3 mx-4 col-">
+                <h3 class="text-center mt-4">Candidate</h3>
+                <div class="user my-4 m-3">
+                    <img src="<%=gov.image %>" width="30%"  alt="">
+                </div>
+                <div class="dev m-3">
+                    <p> Name: <span><%=gov.name %></span> </p> 
+                    <p>Email Address: <span><%=gov.party %></span></p>
+  
+                     <button type="submit" class="btn btn-success">  <i class="fas fa-check-circle"></i></button>
+                 </div>
+            
+            </div>
+        <%       }
+          }   
+          else{ %>
+            <h2>No Developers available</h2>
+         <% }
+          %>
+          
+          
+        </div>
+    </div>
+    
+
+    <%- include('../includes/voters/voter-footer') %>
+</body>
+</html>

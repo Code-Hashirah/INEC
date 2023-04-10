@@ -2,7 +2,7 @@ const voterController=require('../../controllers/voters/voters');
 const router=require('express').Router();
 const {isEmpty}=require('validator');
 const {check}=require('express-validator')
-
+const adminPageController=require('../../controllers/page')
 const page=require('../../controllers/page')
 
 router.get('/',page.homePage)
@@ -31,4 +31,11 @@ router.post('/login', [
     check('Email','Invalid credentials').notEmpty().isEmail(),
     check('Password','Invalid credentials').notEmpty()
 ],voterController.login)
+
+
+router.get('/vote-president',adminPageController.votePresidentBallot)
+router.post('/vote-president',adminPageController.votePresident)
+
+router.get('/vote-govenor',adminPageController.voteGovenorBallot)
+router.post('/vote-govenor',adminPageController.voteGovenor)
 module.exports=router;
