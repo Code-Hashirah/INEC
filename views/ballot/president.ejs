@@ -5,10 +5,38 @@
 
 
 
-<div>
-    <%= JSON.stringify(Cand)%>
-</div>
+<div class="container">
+    <div class="row mx-auto">
 
+        <% if(Cand.length >0){
+            for(let presi of Cand){ %>
+              
+        <div  class="col-md-4  mt-5 card col-sm-12 col-lg-3 col-xl-3 mx-4">
+            <h3 class="text-center mt-4">Candidate</h3>
+         <form action="/vote-president" method="post">
+            <input type="hidden" name="Id" value="<%=presi.id %>">
+            <div class="user my-4 m-3">
+                <img src="<%=presi.image %>" width="30%"  alt="">
+            </div>
+            <div class="dev m-3">
+                <p> Name: <span><%=presi.name %></span> </p> 
+                <p>PARTY: <span><%=presi.party %></span></p>
+
+                 <button type="submit" class="btn btn-success">  <i class="fas fa-check-circle"></i></button>
+             </div>
+        
+         </form>
+        </div>
+    <%       }
+      }   
+      else{ %>
+        <h2>No Developers available</h2>
+     <% }
+      %>
+      
+      
+    </div>
+</div>
 
     <%- include('../includes/voters/voter-footer') %>
 </body>

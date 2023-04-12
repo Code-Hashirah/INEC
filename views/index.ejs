@@ -1,9 +1,56 @@
-<%- include('includes/voters/voter-header') %>
+<%- include('includes/voters/voter-header') %> 
+
 </head>
 <body class="text-bg-light">
     <%- include('includes/voters/voter-navbar') %>
 
+  
 
+      <main id="main" class="row">
+        <h1 id="header">WE-vote::Electronic Voting Platform</h1>
+        <div class="col-4 ">
+            <img src="pics/fingerPrint.jpg" alt="pictures1" class="carousel-single">
+        </div>
+        <div class="col-4 ">
+            <img src="pics/ballotBox.jpg" alt="pictures2" class="carousel-single">
+        </div>
+        <div class="col-4 ">
+            <img src="pics/votinBooth.jpg" alt="pictures3" class="carousel-single">
+        </div>
+        
+      </main>
+      
+      <style>
+        #header{
+            color: white;
+            text-align: center;
+            text-shadow: 5px 5px 5px greenyellow;
+            position: absolute ;
+            /* left: auto; */
+            top: 100px;
+        }
+        #main{
+            position: relative;
+            background-color: black;
+        }
+        #banner{
+            text-align: center;
+            color: green;
+            font-size:xx-large;
+        }
+   
+        .carousel{
+        width: 100%;
+        height: 300px;
+    }
+
+    .carousel-single{
+        width: 100%;
+        height: 300px;
+        opacity: 50%;
+    }
+      </style>
+      
 
 
 

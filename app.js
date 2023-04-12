@@ -58,7 +58,7 @@ app.use(voterRoute);
 app.use(resultRoute)
 // Voters.sync({alter:true})
 // Result.sync({alter:true})
-// Candidates.sync({force:true})
+// Candidates.sync({alter:true})
 sequelize.sync().then(vote=>{
     app.listen(3005)
     console.log("connected on port 3005")

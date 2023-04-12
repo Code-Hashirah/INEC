@@ -1,4 +1,5 @@
    <!-- Offcanvas Sidebar -->
+
    <div class="offcanvas offcanvas-start text-bg-dark" id="demo1">
     <div class="offcanvas-header">
       <h1 class="offcanvas-title">We-Vote</h1>
@@ -11,7 +12,7 @@
                     <a class="nav-link btn btn-outline-success w-75" href="/">Home <i class="fas fa-home"></i></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link btn btn-outline-success w-75" href="/vote">Vote <i class="fas fa-vote-yea"></i></a>
+                    <a class="nav-link btn btn-outline-success w-75" href="/vote-president">Vote <i class="fas fa-vote-yea"></i></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link btn btn-outline-success w-75" href="login">Login <i class="fas fa-sign-in"></i></a>
@@ -35,3 +36,90 @@
       Menu
     </button>
   </div>
+
+  <div class="carousel">
+    <h3 id="banner">WE-VOTING...</h3>
+    <div class="carousel-slide">
+      <img class="carousel" src="pics/ourFlag.jpg" alt="Image 1">
+    </div>
+    <div class="carousel-slide">
+      <img class="carousel" src="pics/NaijaJustice.jpg" alt="Image 2">
+    </div>
+    <div class="carousel-slide">
+      <img class="carousel" src="pics/voteKey.jpg" alt="Image 3">
+    </div>
+    <div class="carousel-slide">
+        <img class="carousel" src="pics/voteYes.jpg" alt="Image 4">
+      </div>
+  </div>
+
+  
+  
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".carousel-slide");
+    const totalSlides = slides.length;
+    const carousel = document.querySelector(".carousel");
+  
+    function showSlide() {
+      for (let slide of slides) {
+        slide.classList.remove("active");
+      }
+      slides[currentSlide].classList.add("active");
+    }
+  
+    function nextSlide() {
+      currentSlide++;
+      if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+      }
+      showSlide();
+    }
+  
+    setInterval(nextSlide, 2000);
+  </script>
+  
+  <style>
+    #banner{
+        text-align: center;
+        color: green;
+        font-size:xx-large;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+  
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+  
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel{
+    width: 90%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.nav-item a{
+    color: white;
+  }
+
+  .nav-item a:hover{
+    color: white;
+  }
+  </style>
+  
+
+

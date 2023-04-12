@@ -1,4 +1,4 @@
-// const { useReducer } = require('react/cjs/react.production.min')
+
 const { Sequelize, Op } = require('sequelize')
 const Candidates=require('../models/admin/candidates')
 const Voter=require('../models/voters/voter')
@@ -20,7 +20,7 @@ exports.votePresidentBallot=(req,res)=>{
             }
     }).then(person=>{
         res.render('ballot/president',{title:"Presidency Ballot", Cand:person})
-        console.log(person)
+        // console.log(person)
     })
     .catch(err=>{
         console.log (err)
@@ -31,7 +31,7 @@ exports.votePresidentBallot=(req,res)=>{
 exports.votePresident=(req,res)=>{
     const {Id}=req.body
     Candidates.findByPk(Id).then(chosen=>{
-        chosen.increment('votes')
+        chosen.increment('votes', {by:1})
     }).then(voted=>{
         res.redirect('/vote-govenor')
     }).catch(err=>{
@@ -50,7 +50,7 @@ exports.voteGovenorBallot=(req,res)=>{
             }
     }).then(Gov=>{
         res.render('ballot/govenor',{title:"Govenorship Ballot", Govenor:Gov})
-        console.log(Gov)
+        // console.log(Gov)
     })
     .catch(err=>{
         console.log (err)
@@ -63,11 +63,15 @@ exports.voteGovenor=(req,res)=>{
     Candidates.findByPk(Id).then(chosen=>{
         chosen.increment('votes')
     }).then(voted=>{
-let ID =req.session.user.id
+let ID =req.session.voter.id
+console.log(ID)
 Voter.findByPk(ID).then(voter=>{
     voter.voted="YES"
+    voter.save()
+}).then(voted=>{
+    res.redirect('/')
 })
-        res.redirect('/vote-govenor')
+     
     }).catch(err=>{
         console.log(err)
     })

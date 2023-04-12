@@ -34,7 +34,11 @@
     .card span{
         font-weight: normal;
     }
-
+    .carousel{
+        width: 100%;
+        height: 300px;
+        opacity: 50%;
+    }
 
    
 </style>
@@ -42,25 +46,40 @@
 <body class="text-bg-light">
     <%- include('../includes/voters/voter-navbar') %>
 
+    <main id="main" class="row">
+        <div class="col-4">
+            <img src="pics/fingerPrint.jpg" alt="pictures1" class="carousel">
+        </div>
+        <div class="col-4">
+            <img src="pics/ballotBox.jpg" alt="pictures2" class="carousel">
+        </div>
+        <div class="col-4">
+            <img src="pics/votinBooth.jpg" alt="pictures3" class="carousel">
+        </div>
+        
+      </main>
 
     <div class="container">
         <div class="row mx-auto">
 
             <% if(Govenor.length >0){
                 for(let gov of Govenor){ %>
-                   
+                  
             <div  class="col-md-4  mt-5 card col-sm-12 col-lg-3 col-xl-3 mx-4">
                 <h3 class="text-center mt-4">Candidate</h3>
+             <form action="/vote-govenor" method="post">
+                <input type="hidden" name="Id" value="<%=gov.id %>">
                 <div class="user my-4 m-3">
                     <img src="<%=gov.image %>" width="30%"  alt="">
                 </div>
                 <div class="dev m-3">
                     <p> Name: <span><%=gov.name %></span> </p> 
-                    <p>Email Address: <span><%=gov.party %></span></p>
+                    <p>PARTY: <span><%=gov.party %></span></p>
   
                      <button type="submit" class="btn btn-success">  <i class="fas fa-check-circle"></i></button>
                  </div>
             
+             </form>
             </div>
         <%       }
           }   
